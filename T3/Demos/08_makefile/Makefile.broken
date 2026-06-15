@@ -1,0 +1,10 @@
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -g -MMD
+EXEC = vecdemo
+CCFILES = $(wildcard *.cc)
+OBJECTS = ${CCFILES:.cc=.o}
+
+# BROKEN: the recipe line below is indented with SPACES, not a TAB.
+# make requires a real TAB to start a recipe.
+${EXEC}: ${OBJECTS}
+    ${CXX} ${OBJECTS} -o ${EXEC}
